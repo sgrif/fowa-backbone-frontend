@@ -13,5 +13,18 @@
  */
 
 module.exports = require(process.env['LINEMAN_MAIN']).config.extend('files', {
-  //Override file patterns here
+  js: {
+    vendor: [
+      "vendor/js/jquery.js",
+      "vendor/js/lodash.js",
+      "vendor/js/backbone.js"
+    ],
+    app: [
+      "app/js/app.js",
+      "app/js/models/**/*.js",
+      "app/js/collections/**/*.js",
+      "app/js/views/**/*.js",
+      "app/js/router.js"
+    ]
+  }
 });
