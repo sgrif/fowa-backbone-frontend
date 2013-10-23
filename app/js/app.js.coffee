@@ -6,7 +6,9 @@ window.App =
   initialize: ->
     App.AllNotes = new App.Collections.Notes()
     App.AllNotes.fetch().done =>
-      new App.Router()
+      view = new App.Views.Notes(collection: App.AllNotes)
+      view.setElement($('body'))
+      view.render()
       Backbone.history.start(pushState: true)
 
 $ ->

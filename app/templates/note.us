@@ -1,8 +1,11 @@
 <dl>
   <header>
-    <input type="text" class="title" value="<%= note.get('title') %>" />
+    <input type="text" class="title" value="<%= note.get('title') %>" placeholder="Title..." />
+    <button class="remove-note">Remove</button>
   </header>
   <div class="body">
-    <textarea class="content"><%= note.get('content') %></textarea>
+    <textarea class="content" placeholder="Content..."><%= note.escape('content') %></textarea>
   </div>
+  <footer>
+  </footer>
 </dl>
