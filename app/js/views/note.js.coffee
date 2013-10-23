@@ -3,6 +3,15 @@ class App.Views.Note extends Backbone.View
 
   className: 'note'
 
+  events:
+    'change :input': 'saveModel'
+
   render: =>
     @$el.html(@template(note: @model))
     this
+
+  saveModel: (e) ->
+    @model.save
+      title: @$('.title').val()
+      content: @$('.content').val()
+    false
