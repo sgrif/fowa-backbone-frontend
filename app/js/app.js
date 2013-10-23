@@ -4,7 +4,7 @@ window.App = {
   Collections: {},
 
   initialize: function() {
-    // alert("Hello, from backbone!");
+    alert("Hello, from backbone!");
   }
 };
 
