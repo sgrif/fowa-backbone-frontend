@@ -1,0 +1,8 @@
+<dl>
+  <header>
+    <input type="text" class="title" value="<%= note.get('title') %>" />
+  </header>
+  <div class="body">
+    <textarea class="content"><%= note.get('content') %></textarea>
+  </div>
+</dl>

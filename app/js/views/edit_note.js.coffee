@@ -13,7 +13,7 @@ class App.Views.EditNote extends Backbone.View
     this
 
   saveModel: (e) ->
-    @model.set
+    @model.save
       title: @$('.title').val()
       content: @$('.content').val()
     Backbone.history.navigate('/', trigger: true)
