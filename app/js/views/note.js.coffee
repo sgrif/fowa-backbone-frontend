@@ -1,35 +1,37 @@
-class App.Views.Note extends Backbone.View
+class App.Views.Note extends Marionette.Layout
   template: JST['app/templates/note.us']
 
   className: 'note'
+
+  tagName: 'li'
+
+  bindings:
+    '.title': 'title'
+    '.content': 'content'
 
   events:
     'blur :input': 'saveModel'
     'click .remove-note': 'destroy'
 
+  modelEvents:
+    'invalid error': 'markInvalid'
+
+  regions:
+    'invalidRegion': 'footer'
+
   initialize: ->
     @lastUpdated = new App.Views.LastUpdated(model: @model)
-    @listenTo(@model, 'invalid error', @markInvalid)
 
   markInvalid: ->
     @$el.addClass('invalid')
 
-  render: =>
-    @$el.html(@template(note: @model))
-    @$('footer').html(@lastUpdated.render().el)
-    this
-
-  remove: ->
-    @lastUpdated.remove(arguments...)
-    super(arguments...)
+  onRender: =>
+    @stickit()
+    @invalidRegion.show(@lastUpdated)
 
   saveModel: (e) ->
-    @model.set
-      title: @$('.title').val()
-      content: @$('.content').val()
     @model.save()
     false
 
   destroy: ->
     @model.destroy()
-    @remove()

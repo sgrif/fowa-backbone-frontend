@@ -1,10 +1,10 @@
 <dl>
   <header>
-    <input type="text" class="title" value="<%= note.get('title') %>" placeholder="Title..." />
+    <input type="text" class="title" placeholder="Title..." />
     <button class="remove-note">Remove</button>
   </header>
   <div class="body">
-    <textarea class="content" placeholder="Content..."><%= note.escape('content') %></textarea>
+    <textarea class="content" placeholder="Content..."></textarea>
   </div>
   <footer>
   </footer>
